@@ -1,14 +1,15 @@
 import React from 'react';
 import logo from '../logo.svg';
-import {Button} from "react-bootstrap";
+import {Button, FormControl, InputGroup} from "react-bootstrap";
 
-const DoctorScreen=()=>{
+const DoctorScreen = () => {
     return (
+
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
+                   Request Access to digital report.
                 </p>
                 <a
                     className="App-link"
@@ -16,9 +17,36 @@ const DoctorScreen=()=>{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Learn React
+                    Search for report
                 </a>
-                <Button variant="primary">Doctor</Button>
+                <InputGroup style={{width: 500 , margin:10}}
+                            className="mb-3">
+                    <FormControl
+                        placeholder="Patient's no"
+                        aria-label="Amount (to the nearest dollar)"
+                    />
+                </InputGroup>
+                <InputGroup style={{width: 500}}
+                    className="mb-3">
+                    <FormControl style={{width:250}}
+                                     placeholder="Enter Duration"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                    />
+                    <InputGroup.Text id="basic-addon2">Days</InputGroup.Text>
+                </InputGroup>
+
+                <InputGroup style ={{width: 115 }}
+                    className="mb-3">
+                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                    <FormControl
+                        placeholder = "forever"
+                        aria-label="Text input with checkbox" />
+                </InputGroup>
+
+
+                <Button variant="success">Submit</Button>
+
             </header>
         </div>
     );
