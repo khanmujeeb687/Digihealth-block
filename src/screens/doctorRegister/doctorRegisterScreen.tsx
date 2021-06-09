@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 
 const DoctorRegisterScreen = () => {
