@@ -5,6 +5,7 @@ import {Route, Switch, withRouter} from 'react-router-dom';
 import Home from "./screens/home";
 import DoctorScreen from "./screens/doctorScreen";
 import Pathologist from "./screens/Pathologist";
+import DoctorRegisterScreen from "./screens/doctorRegister/doctorRegisterScreen";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/doctor" component={DoctorScreen} />
                 <Route path="/pathologist" component={Pathologist} />
+                <Route path="/doctor/register" component={DoctorRegisterScreen} />
             </Switch>
         </div>
     );
