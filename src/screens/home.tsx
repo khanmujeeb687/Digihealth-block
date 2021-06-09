@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import logo from '../logo.svg';
+import GradientBanner from "../components/GradientBanner";
 
 const Home = () => {
     return (
@@ -18,6 +19,12 @@ const Home = () => {
                 >
                     Learn React
                 </a>
+                <Row style={{marginTop:20}}>
+                    <Col><GradientBanner/></Col>
+                    <Col><GradientBanner/></Col>
+                    <Col><GradientBanner/></Col>
+                </Row>
+
                 <Button variant="primary">Primary</Button>
             </header>
         </div>
