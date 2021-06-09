@@ -9,7 +9,7 @@ const DoctorRegisterScreen = () => {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
-                    Request Access to digital report.
+                    Registration Details
                 </p>
                 <a
                     className="App-link"
@@ -17,12 +17,11 @@ const DoctorRegisterScreen = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Search for report
                 </a>
                 <InputGroup style={{width: 500 , margin:10}}
                             className="mb-3">
                     <FormControl
-                        placeholder="Patient's no"
+                        placeholder="email"
                         aria-label="Amount (to the nearest dollar)"
                     />
                 </InputGroup>
