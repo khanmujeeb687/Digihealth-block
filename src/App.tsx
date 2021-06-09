@@ -6,6 +6,7 @@ import Home from "./screens/home";
 import DoctorScreen from "./screens/doctorScreen";
 import Pathologist from "./screens/Pathologist";
 import DoctorRegisterScreen from "./screens/doctorRegister/doctorRegisterScreen";
+import DoctorHome from "./screens/doctorHome";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/doctor" component={DoctorScreen} />
+                <Route exact path="/doctor/home" component={DoctorHome} />
                 <Route path="/pathologist" component={Pathologist} />
                 <Route path="/doctor/register" component={DoctorRegisterScreen} />
             </Switch>
