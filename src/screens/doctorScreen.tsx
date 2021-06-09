@@ -45,8 +45,6 @@ const DoctorScreen = () => {
                 </InputGroup>
 
 
-                <Button variant="success">Submit</Button>
-
             </header>
         </div>
     );
