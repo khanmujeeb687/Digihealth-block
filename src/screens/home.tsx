@@ -20,12 +20,10 @@ const Home = () => {
                     Learn React
                 </a>
                 <Row style={{marginTop:20}}>
-                    <Col><GradientBanner/></Col>
-                    <Col><GradientBanner/></Col>
-                    <Col><GradientBanner/></Col>
+                    <Col><GradientBanner title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
+                    <Col><GradientBanner title={"Patient"} subTitle={"Keep reports safe using blockchain."}/></Col>
+                    <Col><GradientBanner title={"Pathologist"} subTitle={"Upload reports save paper."}/></Col>
                 </Row>
-
-                <Button variant="primary">Primary</Button>
             </header>
         </div>
     );
