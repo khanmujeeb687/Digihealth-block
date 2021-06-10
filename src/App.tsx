@@ -8,6 +8,7 @@ import Pathologist from "./screens/Pathologist";
 import DoctorRegisterScreen from "./screens/doctorRegister/doctorRegisterScreen";
 import DoctorHome from "./screens/doctorHome";
 import PathologistRegister from "./screens/doctorRegister/pathologistRegister";
+import PathologistHome from "./screens/pathologistHome";
 
 
 function App() {
@@ -18,8 +19,10 @@ function App() {
                 <Route exact path="/pathologist" component={Pathologist} />
                 <Route exact path="/doctor" component={DoctorScreen} />
                 <Route exact path="/doctor/home" component={DoctorHome} />
+                <Route exact path="/pathologist/home" component={PathologistHome} />
                 <Route path="/doctor/register" component={DoctorRegisterScreen} />
                 <Route path="/pathologist/register" component={PathologistRegister} />
+
             </Switch>
         </div>
     );
