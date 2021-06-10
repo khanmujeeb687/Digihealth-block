@@ -41,6 +41,21 @@ const PathologistRegister = () => {
                 <InputGroup style={{width: 300 , margin:10}}
                             className="mb-3">
                     <FormControl
+                        placeholder="Password"
+                        aria-label="Amount (to the nearest dollar)"
+                    />
+                </InputGroup>
+
+                <InputGroup style={{width: 300 , margin:10}}
+                            className="mb-3">
+                    <FormControl
+                        placeholder="Confirm Password"
+                        aria-label="Amount (to the nearest dollar)"
+                    />
+                </InputGroup>
+                <InputGroup style={{width: 300 , margin:10}}
+                            className="mb-3">
+                    <FormControl
                         placeholder="Contact no"
                         aria-label="Amount (to the nearest dollar)"
                     />
