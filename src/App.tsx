@@ -10,6 +10,7 @@ import DoctorHome from "./screens/doctorHome";
 import PathologistRegister from "./screens/doctorRegister/pathologistRegister";
 import PathologistHome from "./screens/pathologistHome";
 import UploadReport from "./screens/uploadReport";
+import Login from "./screens/login";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pathologist" component={Pathologist} />
                 <Route exact path="/doctor" component={DoctorScreen} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/doctor/home" component={DoctorHome} />
                 <Route exact path="/pathologist/home" component={PathologistHome} />
                 <Route exact path="/pathologist/new" component={UploadReport} />
