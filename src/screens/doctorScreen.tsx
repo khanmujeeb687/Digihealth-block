@@ -36,12 +36,12 @@ const DoctorScreen = () => {
                     <InputGroup.Text id="basic-addon2">Days</InputGroup.Text>
                 </InputGroup>
 
-                <InputGroup style ={{width: 115 }}
+                <InputGroup  style ={{width:150 }}
                     className="mb-3">
-                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                    <FormControl
-                        placeholder = "forever"
-                        aria-label="Text input with checkbox" />
+                    <InputGroup.Checkbox    aria-label="Checkbox for following text input"/> Forever
+
+                    <Button style={{marginTop: 10}}  variant ="success">Submit</Button>
+
                 </InputGroup>
 
 

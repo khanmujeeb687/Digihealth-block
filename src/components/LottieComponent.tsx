@@ -15,8 +15,8 @@ const LottieComponent = () => {
     return (
         <div style={{alignSelf:'center'}}>
         <Lottie options={defaultOptions}
-                height={400}
-                width={600}/>
+                height={window.innerWidth/3}
+                width={window.innerWidth/3}/>
         </div>
     );
 
