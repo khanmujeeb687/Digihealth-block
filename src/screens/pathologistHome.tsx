@@ -16,7 +16,7 @@ const PathologistHome = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Doctor's Home
+                    pathologist's Home
                 </a>
 
 
