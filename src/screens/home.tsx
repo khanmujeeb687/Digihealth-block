@@ -20,9 +20,9 @@ const Home = () => {
                     Learn React
                 </a>
                 <Row style={{marginTop:20}}>
-                    <Col><GradientBanner title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
-                    <Col><GradientBanner title={"Patient"} subTitle={"Keep reports safe using blockchain."}/></Col>
-                    <Col><GradientBanner title={"Pathologist"} subTitle={"Upload reports save paper."}/></Col>
+                    <Col><GradientBanner to={'/doctor/home'} title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
+                    <Col><GradientBanner to={'/user'} title={"Patient"} subTitle={"Keep reports safe using blockchain."}/></Col>
+                    <Col><GradientBanner to={'/pathologist/register'} title={"Pathologist"} subTitle={"Upload reports save paper."}/></Col>
                 </Row>
             </header>
         </div>
