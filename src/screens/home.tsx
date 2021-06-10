@@ -1,15 +1,15 @@
 import React from 'react';
 import {Button, Col, Row} from "react-bootstrap";
-import logo from '../logo.svg';
 import GradientBanner from "../components/GradientBanner";
+import LottieComponent from "../components/LottieComponent";
 
 const Home = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
+                <LottieComponent/>
                 <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
+                   Welcome to Blockchain Protected Digital Reports system.
                 </p>
                 <a
                     className="App-link"
@@ -17,7 +17,7 @@ const Home = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Learn React
+                    HealthBlock
                 </a>
                 <Row style={{marginTop:20}}>
                     <Col><GradientBanner to={'/doctor/home'} title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
