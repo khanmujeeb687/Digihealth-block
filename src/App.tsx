@@ -9,6 +9,7 @@ import DoctorRegisterScreen from "./screens/doctorRegister/doctorRegisterScreen"
 import DoctorHome from "./screens/doctorHome";
 import PathologistRegister from "./screens/doctorRegister/pathologistRegister";
 import PathologistHome from "./screens/pathologistHome";
+import UploadReport from "./screens/uploadReport";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route exact path="/doctor" component={DoctorScreen} />
                 <Route exact path="/doctor/home" component={DoctorHome} />
                 <Route exact path="/pathologist/home" component={PathologistHome} />
+                <Route exact path="/pathologist/new" component={UploadReport} />
                 <Route path="/doctor/register" component={DoctorRegisterScreen} />
                 <Route path="/pathologist/register" component={PathologistRegister} />
 
