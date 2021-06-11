@@ -10,8 +10,6 @@ const UploadReport = () => {
 
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-
                 <a
                     className="App-link"
                     href="https://reactjs.org"
@@ -22,9 +20,9 @@ const UploadReport = () => {
                 </a>
 
 
-                <Form.Group style={ {width:300,marginTop:10}}
+                <Form.Group style={ {width:300,marginTop:10,cursor:'pointer'}}
                     controlId="formFileLg" className="mb-3">
-                    <Form.Control type="file" size="lg" />
+                    <Form.Control type="file" size="sm" />
                 </Form.Group>
 
 

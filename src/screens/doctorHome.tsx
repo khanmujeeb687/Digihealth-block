@@ -8,7 +8,6 @@ const DoctorHome = () => {
 
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
 
                 <a
                     className="App-link"
@@ -18,7 +17,7 @@ const DoctorHome = () => {
                 >
                     Doctor's Home
                 </a>
-                <Tabs style= {{width:window.innerWidth-100}} defaultActiveKey="profile" id="uncontrolled-tab-example">
+                <Tabs style= {{width:window.innerWidth-100}} defaultActiveKey="Who viewed" id="uncontrolled-tab-example">
                     <Tab eventKey="Who viewed" title="Who viewed">
                         <p >
                             first</p>
