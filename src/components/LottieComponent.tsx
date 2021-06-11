@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from './../lottie/infection.json';
+import animationData from './../lottie/hispital.json';
 
 const LottieComponent = () => {
     const defaultOptions = {
@@ -13,10 +13,10 @@ const LottieComponent = () => {
     };
 
     return (
-        <div style={{alignSelf:'center'}}>
+        <div style={{alignSelf:'center',padding:20}}>
         <Lottie options={defaultOptions}
-                height={window.innerWidth/3}
-                width={window.innerWidth/3}/>
+                height={window.innerWidth/4}
+                width={window.innerWidth/2}/>
         </div>
     );
 

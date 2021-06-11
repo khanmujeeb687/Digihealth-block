@@ -7,7 +7,6 @@ const DoctorScreen = () => {
 
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
                 <p>
                    Request Access to digital report.
                 </p>

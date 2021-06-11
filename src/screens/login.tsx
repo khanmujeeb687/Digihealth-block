@@ -7,7 +7,6 @@ const Login = () => {
 
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
 
                 <a
                     className="App-link"
@@ -31,7 +30,7 @@ const Login = () => {
                         aria-label="Amount (to the nearest dollar)"
                     />
                 </InputGroup>
-                
+
 
 
 
