@@ -12,6 +12,10 @@ import UploadReport from "./screens/uploadReport";
 import Login from "./screens/login";
 import firebase from "firebase";
 import {Button} from "react-bootstrap";
+import DoctorHome from "./screens/doctorHome";
+import LottieComponent from "./components/LottieComponent";
+import {GenUtil} from "./utils/genUtil";
+
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
     authDomain: "ereport-7fc81.firebaseapp.com",
@@ -21,9 +25,6 @@ const firebaseConfig = {
     appId: "1:32963531288:web:0907bb27a6be716f1d696d",
     measurementId: "G-JVSDF7NE7Y"
 };
-import DoctorHome from "./screens/doctorHome";
-import LottieComponent from "./components/LottieComponent";
-import {GenUtil} from "./utils/genUtil";
 
 
 function App(props:any) {

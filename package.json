@@ -13,6 +13,7 @@
     "@types/react-lottie": "^1.2.5",
     "@types/react-router-dom": "^5.1.7",
     "add": "^2.0.6",
+    "async-await-error-handling": "^0.5.2",
     "bootstrap": "4.6.0",
     "firebase": "^8.6.7",
     "firebase-tools": "^9.12.1",
