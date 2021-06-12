@@ -26,12 +26,14 @@ const firebaseConfig = {
     measurementId: "G-JVSDF7NE7Y"
 };
 
+
+
 function App(props:any) {
 
     useEffect(()=>{  firebase.initializeApp(firebaseConfig);},[]);
     return (
         <div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>
-           g
+
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pathologist" component={Pathologist} />
