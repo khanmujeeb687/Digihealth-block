@@ -15,6 +15,7 @@ import {Button} from "react-bootstrap";
 import DoctorHome from "./screens/doctorHome";
 import LottieComponent from "./components/LottieComponent";
 import {GenUtil} from "./utils/genUtil";
+import UserRegister from "./screens/doctorRegister/userRegister";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -37,6 +38,7 @@ function App(props:any) {
                 <Route exact path="/pathologist" component={Pathologist} />
                 <Route exact path="/doctor" component={DoctorScreen} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/user/register" component={UserRegister} />
                 <Route exact path="/doctor/home" component={DoctorHome} />
                 <Route exact path="/pathologist/home" component={PathologistHome} />
                 <Route exact path="/pathologist/new" component={UploadReport} />
