@@ -12,6 +12,10 @@ import UploadReport from "./screens/uploadReport";
 import Login from "./screens/login";
 import firebase from "firebase";
 import {Button} from "react-bootstrap";
+import DoctorHome from "./screens/doctorHome";
+import LottieComponent from "./components/LottieComponent";
+import {GenUtil} from "./utils/genUtil";
+
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
     authDomain: "ereport-7fc81.firebaseapp.com",
@@ -21,16 +25,13 @@ const firebaseConfig = {
     appId: "1:32963531288:web:0907bb27a6be716f1d696d",
     measurementId: "G-JVSDF7NE7Y"
 };
-import DoctorHome from "./screens/doctorHome";
-import LottieComponent from "./components/LottieComponent";
-import {GenUtil} from "./utils/genUtil";
-
 
 function App(props:any) {
 
     useEffect(()=>{  firebase.initializeApp(firebaseConfig);},[]);
     return (
         <div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>
+           g
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pathologist" component={Pathologist} />
