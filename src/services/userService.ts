@@ -12,5 +12,16 @@ export class UserService {
       await ref.update({hash});
     }
 
+    static async viewList(userId:string){
+       const response=await  firebase.firestore().collection('view').where('user_id','==',userId).get();
+       return response.docs;
+    }
+
+
+    static async getReports(userId:string){
+       const response=await  firebase.firestore().collection('report').where('user_id','==',userId).get();
+       return response.docs;
+    }
+
 
 }
