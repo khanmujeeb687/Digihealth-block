@@ -6,7 +6,7 @@ import DocumentReference = firebase.firestore.DocumentReference;
 export class UserService {
 
 
-    static async saveNewUser(user:IUser){
+    static async registerUser(user:IUser){
       const ref:DocumentReference = await firebase.firestore().collection('user').add(user);
       const hash = GenUtil.getSHA1(ref.id);
       await ref.update({hash});
@@ -22,6 +22,31 @@ export class UserService {
        const response=await  firebase.firestore().collection('report').where('user_id','==',userId).get();
        return response.docs;
     }
+    static  async login(mobileNo:string,password:string){
+        const response= await firebase.firestore().collection('user').where('phone','==',mobileNo).get();
+        if(response.docs.length===0) return false;
+        if(response.docs[0].data().password===password) return response.docs[0].data();
+        else return false;
+    }
+    static  async request(userId:string){
+        const response = await firebase.firestore().collection('request'). where( 'user_id','==',userId).get();
+        return response.docs;
+    }
+    static async permitted(docIds : string[]) {
+        const doctors= [] as any[];
+        const snapshot = await firebase.firestore().collection('doctor').get();
+        snapshot.docs.forEach(doctor => {
+            if(docIds.includes(doctor.id)){
+                doctors.push(doctor)
+            }
+        });
+        return doctors;
+    }
+    static async updateStatus(requestId: string){
+        firebase.firestore().collection('request').doc(requestId).update({status: 'allowed' } )
+    }
+
+
 
 
 }
