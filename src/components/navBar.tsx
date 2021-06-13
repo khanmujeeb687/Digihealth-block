@@ -1,8 +1,9 @@
 import React from 'react';
 import {Button, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {StorageUtil} from "../utils/storageUtil";
 
 
-const MyNavBar=()=>{
+const MyNavBar=(props:any)=>{
 
   return (
       <Navbar sticky={'top'} bg="light" expand="lg">
@@ -12,7 +13,11 @@ const MyNavBar=()=>{
               <Nav className="mr-auto">
                   <Nav.Link href="/doctor/new">+ Request</Nav.Link>
               </Nav>
-                  <Button variant="outline-danger">Logout</Button>
+                  <Button  onClick={()=>{
+                      StorageUtil.logout();
+                      props.history.push('/');
+                  }}
+                      variant="outline-danger">Logout</Button>
           </Navbar.Collapse>
       </Navbar>
   )  ;

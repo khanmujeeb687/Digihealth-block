@@ -1,9 +1,30 @@
-import React from 'react';
-import logo from '../logo.svg';
+import React, {useState} from 'react';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
+import {AuthService} from "../services/authService";
+
+
+
+
 
 const Login = (props:any) => {
     const type=props.match.params.type;
+    const [mobileNo,setMobileNo]=useState('');
+    const [password,setPassword]=useState('');
+    const submit = async ()=>{
+        if(mobileNo && password && mobileNo.length===10
+        ){
+          const response =  await  AuthService.login(mobileNo,password,type);
+          if(response){
+              props.history.push('/');
+          }
+          else{
+              window.alert('Invalid Authentication');
+          }
+        }else{
+            window.alert('Invalid details');
+        }
+    }
+
     return (
 
         <div className="App">
@@ -20,6 +41,8 @@ const Login = (props:any) => {
                 <InputGroup style={{width: 300, margin:10}}
                             className="mb-3">
                     <FormControl
+                        value={mobileNo}
+                        onChange={(a)=>setMobileNo(a.target.value)}
                         placeholder="Mobile No"
                         aria-label="Amount (to the nearest dollar)"
                     />
@@ -27,6 +50,8 @@ const Login = (props:any) => {
                 <InputGroup style={{width: 300 , margin:10}}
                             className="mb-3">
                     <FormControl
+                        value={password}
+                        onChange={(a)=>setPassword(a.target.value)}
                         placeholder="Password"
                         aria-label="Amount (to the nearest dollar)"
                     />
@@ -35,7 +60,8 @@ const Login = (props:any) => {
 
 
 
-                <Button variant="success">Submit</Button>
+                <Button onClick={submit}
+                    variant="success">Submit</Button>
 
             </header>
         </div>
