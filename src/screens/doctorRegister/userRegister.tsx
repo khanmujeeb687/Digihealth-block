@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import logo from '../../logo.svg';
-import { Button, FormControl, InputGroup} from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {UserService} from "../../services/userService";
-
-
 
 
 const UserRegister = (props:any) => {
@@ -17,7 +11,7 @@ const UserRegister = (props:any) => {
 
     const submit = async ()=>{
         if(phone && password && (password===password1) && phone.length===10){
-           await  UserService.saveNewUser({phone:phone,password:password});
+           await  UserService.registerUser({phone:phone,password:password});
            props.history.push('/');
         }else{
             window.alert('Invalid details');

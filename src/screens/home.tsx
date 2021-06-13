@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Col, Row} from "react-bootstrap";
 import GradientBanner from "../components/GradientBanner";
+import MyNavBar from "../components/navBar";
 
 const Home = () => {
     return (
