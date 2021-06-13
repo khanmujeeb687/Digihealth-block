@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from '../logo.svg';
 import {Tabs,Tab} from "react-bootstrap";
 import MyNavBar from "../components/navBar";

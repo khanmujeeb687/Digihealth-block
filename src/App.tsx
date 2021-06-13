@@ -42,7 +42,7 @@ function App(props:any) {
                 <Route exact path="/pathologist" component={Pathologist} />
                 <Route exact path="/doctor" component={DoctorHome} />
                 <Route exact path="/user" component={UserHome} />
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/login/:type" component={Login} />
                 <Route exact path="/doctor/new" component={DoctorScreen} />
                 <Route exact path="/user/register" component={UserRegister} />
                 <Route exact path="/doctor/home" component={DoctorHome} />

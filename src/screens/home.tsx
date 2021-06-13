@@ -19,9 +19,9 @@ const Home = () => {
                     HealthBlock
                 </a>
                 <Row style={{marginTop:20}}>
-                    <Col ><GradientBanner to={'/doctor/home'} title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
-                    <Col ><GradientBanner to={'/user'} title={"Patient"} subTitle={"Keep reports safe using blockchain."}/></Col>
-                    <Col ><GradientBanner to={'/pathologist/new'} title={"Pathologist"} subTitle={"Upload reports save paper."}/></Col>
+                    <Col ><GradientBanner to={'/login/doctor'} title={"Doctor"} subTitle={"See reports, stay updated."}/></Col>
+                    <Col ><GradientBanner to={'/login/user'} title={"Patient"} subTitle={"Keep reports safe using blockchain."}/></Col>
+                    <Col ><GradientBanner to={'/login/pathologist'} title={"Pathologist"} subTitle={"Upload reports save paper."}/></Col>
                 </Row>
             </header>
         </div>
