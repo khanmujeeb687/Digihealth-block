@@ -1,9 +1,9 @@
 export class StorageUtil {
-    static  saveUserData(data: any) {
+    static saveUserData(data: any) {
         localStorage.setItem('userData', JSON.stringify(data));
     }
 
-    static  requestUserData() {
+    static requestUserData() {
 
         const a = localStorage.getItem('userData');
         if (a !== null) {
@@ -13,8 +13,17 @@ export class StorageUtil {
         }
 
     }
-static  logout(){
-     localStorage.removeItem('userData');
-}
+
+    static logout() {
+        localStorage.removeItem('userData');
+    }
+
+    static showLoader(){
+        localStorage.setItem('loader',"true");
+    }
+
+    static hideLoader(){
+        localStorage.removeItem('loader');
+    }
 
 }

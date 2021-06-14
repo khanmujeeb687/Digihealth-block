@@ -18,6 +18,8 @@ import MyNavBar from "./components/navBar";
 import UserRegister from "./screens/doctorRegister/userRegister";
 import DoctorScreen from "./screens/doctorScreen";
 import Footer from "./components/footer";
+import {StorageUtil} from "./utils/storageUtil";
+import FullScreenLoader from "./components/fullScreenLoader";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -36,6 +38,7 @@ function App(props:any) {
     useEffect(()=>{  firebase.initializeApp(firebaseConfig);},[]);
     return (
         <div>
+            <FullScreenLoader/>
             {/*<div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>*/}
             <div style={{minHeight:window.innerHeight,backgroundColor: '#282c34'}}>
             <Switch>
