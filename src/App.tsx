@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {Route, Switch, withRouter} from 'react-router-dom';
@@ -35,12 +35,19 @@ const firebaseConfig = {
 
 function App(props:any) {
 
-    useEffect(()=>{  firebase.initializeApp(firebaseConfig);},[]);
+    const [loaded,setLoaded]=useState(false);
+
+    useEffect(()=>{
+        (async()=>{
+           await  firebase.initializeApp(firebaseConfig);
+           setLoaded(true);
+        })();
+        },[]);
     return (
         <div>
-            <FullScreenLoader/>
+            <FullScreenLoader show={!loaded}/>
             {/*<div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>*/}
-            <div style={{minHeight:window.innerHeight,backgroundColor: '#282c34'}}>
+            {loaded?<div style={{minHeight:window.innerHeight,backgroundColor: '#282c34'}}>
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/pathologist" component={PathologistHome} />
@@ -56,7 +63,7 @@ function App(props:any) {
                 <Route path="/pathologist/register" component={PathologistRegister} />
             </Switch>
             {/*{GenUtil.isFormRoute(props.location.pathname)?<LottieComponent/>:null}*/}
-        </div>
+        </div>:null}
             {/*<Footer/>*/}
         </div>
     );

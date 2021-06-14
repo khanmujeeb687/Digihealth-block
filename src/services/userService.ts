@@ -1,11 +1,17 @@
 import firebase from "firebase";
 import {IUser} from "../models/interfaces";
 import {GenUtil} from "../utils/genUtil";
+import {AuthService} from "./authService";
 
 export class UserService {
 
 
     static async registerUser(user:any){
+        const exist=await AuthService.doExist(user.phone,'user');
+        if(exist){
+            window.alert('Already exists!');
+            return;
+        }
       const ref = await firebase.firestore().collection('user').add(user);
       const hash = GenUtil.getSHA1(ref.id);
       await ref.update({hash});
@@ -46,6 +52,10 @@ export class UserService {
     }
 
 
+    static  async getUser(userId:string){
+        const response = await firebase.firestore().collection('request'). where( 'user_id','==',userId).get();
+        return response.docs;
+    }
 
 
 }

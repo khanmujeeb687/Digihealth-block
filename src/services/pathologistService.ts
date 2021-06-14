@@ -6,6 +6,11 @@ import {AuthService} from "./authService";
 import {StorageUtil} from "../utils/storageUtil";
 export  class PathologistService{
     static async registerPathologist(pathologist:any){
+        const exist=await AuthService.doExist(pathologist.phone,'pathologist');
+        if(exist){
+            window.alert('Already exists!');
+            return;
+        }
         const ref = await firebase.firestore().collection('pathologist').add(pathologist);
         const hash = GenUtil.getSHA1(ref.id);
         await ref.update({hash});
@@ -13,6 +18,11 @@ export  class PathologistService{
 
     static async uploadReport({key,file,phone}:any){
         try {
+            const exist=await AuthService.doExist(phone,'user');
+            if(!exist){
+                window.alert('Patient doesn\'t exists!');
+                return;
+            }
             const verify = await AuthService.verifyHash(key, StorageUtil.requestUserData().phone, StorageUtil.requestUserData().type);
             if (!verify) {
                 window.alert('Key verification failed!')
@@ -37,8 +47,8 @@ export  class PathologistService{
     }
 
 
-    static async getReports(pathologist:any){
-        const res = await firebase.firestore().collection('pathologist').where('pathologist_id','==',
+    static async getReports(){
+        const res = await firebase.firestore().collection('report').where('pathologist_id','==',
         StorageUtil.requestUserData().id).get();
         return res.docs;
     }

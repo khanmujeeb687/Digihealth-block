@@ -28,5 +28,10 @@ export class  AuthService{
         return false;
     }
 
+    static async doExist(phone:string,type:string){
+        const data =await  firebase.firestore().collection(type).where('phone','==',phone).get();
+        return data.docs.length>0;
+    }
+
 
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import {Spinner} from "react-bootstrap";
 
-const FullScreenLoader = () => {
-    if (!localStorage.getItem('loader')) return null;
+const FullScreenLoader = ({show}:{show?:boolean}) => {
+    if (!localStorage.getItem('loader') || show) return null;
     return (
         <div style={{
             opacity:'0.3',
