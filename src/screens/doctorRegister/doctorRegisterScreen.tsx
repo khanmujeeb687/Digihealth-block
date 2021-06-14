@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {UserService} from "../../services/userService";
 import {DoctorService} from "../../services/doctorService";
+import MyNavBar from "../../components/navBar";
 
 
 
@@ -35,13 +36,14 @@ const DoctorRegisterScreen = (props:any) => {
             await  DoctorService.registerDoctor({phone,password,firstname,lastname,email,
             specialization,licenseNo,address,city,state,pin
             });
-            props.history.push('/');
+            props.history.push('/login');
         }else{
             window.alert('Invalid details');
         }
     }
     return (
-
+        <div>
+            <MyNavBar/>
         <div className="App">
             <header className="App-header">
                 <p>
@@ -176,6 +178,7 @@ const DoctorRegisterScreen = (props:any) => {
                     variant="success">Submit</Button>
 
             </header>
+        </div>
         </div>
     );
 }

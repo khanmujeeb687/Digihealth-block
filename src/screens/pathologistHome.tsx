@@ -1,24 +1,31 @@
 import React from 'react';
 import logo from '../logo.svg';
-import {Tabs,Tab} from "react-bootstrap";
+import {Tabs, Tab, Button} from "react-bootstrap";
+import MyNavBar from "../components/navBar";
+import {StorageUtil} from "../utils/storageUtil";
 
 
-const PathologistHome = () => {
+const PathologistHome = (props:any) => {
     return (
-
+        <div>
+            <MyNavBar buttonText={'Logout'} onClick={()=>{
+                StorageUtil.logout();
+                props.history.push('/');
+            }}/>
         <div className="App">
             <header className="App-header">
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    pathologist's Home
-                </a>
 
+                <p
+                    className="App-link"
+                >
+                    Uplaod a new Report
+                </p>
+                <Button onClick={()=>{
+                    props.history.push('/pathologist/new');
+                }} variant="primary">+ Upload</Button>
 
             </header>
+        </div>
         </div>
     );
 }

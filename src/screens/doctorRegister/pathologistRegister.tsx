@@ -3,6 +3,7 @@ import logo from '../../logo.svg';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {DoctorService} from "../../services/doctorService";
 import {PathologistService} from "../../services/pathologistService";
+import MyNavBar from "../../components/navBar";
 
 const PathologistRegister = (props:any) => {
     const [phone,setPhone]=useState('');
@@ -25,14 +26,15 @@ const PathologistRegister = (props:any) => {
             await  PathologistService.registerPathologist({phone,password,name,email,
                 licenseNo,address,type
             });
-            props.history.push('/');
+            props.history.push('/login');
         }else{
             window.alert('Invalid details');
         }
     }
 
     return (
-
+        <div>
+            <MyNavBar/>
         <div className="App">
             <header className="App-header">
                 <a
@@ -98,15 +100,6 @@ const PathologistRegister = (props:any) => {
                         aria-label="Amount (to the nearest dollar)"
                     />
                 </InputGroup>
-                <InputGroup style={{width: 300 , margin:10}}
-                            className="mb-3">
-                    <FormControl
-                        value={phone}
-                        onChange={(a)=>setPhone(a.target.value)}
-                        placeholder="Contact no"
-                        aria-label="Amount (to the nearest dollar)"
-                    />
-                </InputGroup>
 
                 <InputGroup style={{width: 300}}
                             className="mb-3">
@@ -143,6 +136,7 @@ const PathologistRegister = (props:any) => {
                     variant="success">Submit</Button>
 
             </header>
+        </div>
         </div>
     );
 }

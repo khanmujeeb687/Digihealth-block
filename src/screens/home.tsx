@@ -17,8 +17,9 @@ const Home = (props: any) => {
     }, []);
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="App" >
+            <MyNavBar />
+            <header className="App-header" style={{marginTop:70}}>
                 <p>
                     Welcome to Blockchain Protected Digital Reports system.
                 </p>

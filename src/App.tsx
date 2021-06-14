@@ -17,6 +17,7 @@ import UserHome from "./screens/userHome";
 import MyNavBar from "./components/navBar";
 import UserRegister from "./screens/doctorRegister/userRegister";
 import DoctorScreen from "./screens/doctorScreen";
+import Footer from "./components/footer";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -35,24 +36,25 @@ function App(props:any) {
     useEffect(()=>{  firebase.initializeApp(firebaseConfig);},[]);
     return (
         <div>
-            <MyNavBar/>
-            <div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>
+            {/*<div style={{padding:10,backgroundColor: '#282c34', flexDirection:'row',display:'flex',minHeight:window.innerHeight,alignItems:'center',justifyContent:'space-evenly'}}>*/}
+            <div style={{minHeight:window.innerHeight,backgroundColor: '#282c34'}}>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/pathologist" component={Pathologist} />
+                <Route exact path="/pathologist" component={PathologistHome} />
                 <Route exact path="/doctor" component={DoctorHome} />
                 <Route exact path="/user" component={UserHome} />
                 <Route exact path="/login/:type" component={Login} />
                 <Route exact path="/doctor/new" component={DoctorScreen} />
                 <Route exact path="/user/register" component={UserRegister} />
                 <Route exact path="/doctor/home" component={DoctorHome} />
-                <Route exact path="/pathologist/home" component={PathologistHome} />
+                <Route exact path="/pathologist/home" component={Pathologist} />
                 <Route exact path="/pathologist/new" component={UploadReport} />
                 <Route path="/doctor/register" component={DoctorRegisterScreen} />
                 <Route path="/pathologist/register" component={PathologistRegister} />
             </Switch>
-            {GenUtil.isFormRoute(props.location.pathname)?<LottieComponent/>:null}
+            {/*{GenUtil.isFormRoute(props.location.pathname)?<LottieComponent/>:null}*/}
         </div>
+            {/*<Footer/>*/}
         </div>
     );
 }

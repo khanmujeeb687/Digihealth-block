@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {UserService} from "../../services/userService";
+import MyNavBar from "../../components/navBar";
 
 
 const UserRegister = (props:any) => {
@@ -12,13 +13,15 @@ const UserRegister = (props:any) => {
     const submit = async ()=>{
         if(phone && password && (password===password1) && phone.length===10){
            await  UserService.registerUser({phone:phone,password:password});
-           props.history.push('/');
+            props.history.push('/login');
         }else{
             window.alert('Invalid details');
         }
     }
 
     return (
+        <div>
+            <MyNavBar/>
         <div className="App">
             <header className="App-header">
 
@@ -64,6 +67,7 @@ const UserRegister = (props:any) => {
                 <Button onClick={submit} variant="success">Submit</Button>
 
             </header>
+        </div>
         </div>
     );
 }

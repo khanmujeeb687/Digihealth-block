@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {AuthService} from "../services/authService";
+import MyNavBar from "../components/navBar";
 
 
 
@@ -26,7 +27,8 @@ const Login = (props:any) => {
     }
 
     return (
-
+        <div>
+            <MyNavBar/>
         <div className="App">
             <header className="App-header">
 
@@ -57,13 +59,19 @@ const Login = (props:any) => {
                     />
                 </InputGroup>
 
-
-
-
                 <Button onClick={submit}
                     variant="success">Submit</Button>
 
+
+                <p style={{marginTop:20}}
+                >Do not have an account ?<a
+                    className="App-link"
+                    onClick={()=>{
+                        props.history.push('/'+type+'/register');
+                    }}
+                > Register</a> </p>
             </header>
+        </div>
         </div>
     );
 }
