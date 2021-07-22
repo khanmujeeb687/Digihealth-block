@@ -2,9 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ScreenShots
+
+![Screen Shot 2021-07-22 at 4 21 43 PM](https://user-images.githubusercontent.com/58891556/126628511-d5bf4ae0-9f9d-42e1-bc7e-fd9e3c734580.png)
+![Screen Shot 2021-07-22 at 4 21 33 PM](https://user-images.githubusercontent.com/58891556/126628522-bcf2b953-f7c2-4d0d-bfe1-cc031f76ab0f.png)
+![Screen Shot 2021-07-22 at 4 21 23 PM](https://user-images.githubusercontent.com/58891556/126628527-7d267f0a-d13a-4708-a57f-e2e1054cf11c.png)
+![Screen Shot 2021-07-22 at 4 21 22 PM](https://user-images.githubusercontent.com/58891556/126628529-e746f077-be07-4607-940b-f79b88e892e1.png)
+
+
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, first run:
+
+### `yarn install`
+
+thn you can run:
 
 ### `yarn start`
 
