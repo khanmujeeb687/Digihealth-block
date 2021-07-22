@@ -35,7 +35,7 @@ const DoctorScreen = (props:any) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Search for report
+                    Search for patient
                 </a>
                 <InputGroup style={{width: 500 , margin:10}}
                             className="mb-3">

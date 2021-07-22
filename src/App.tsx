@@ -17,6 +17,7 @@ import DoctorScreen from "./screens/doctorScreen";
 import FullScreenLoader from "./components/fullScreenLoader";
 import {UserService} from "./services/userService";
 import FilesScreen from "./screens/Files";
+import Footer from "./components/footer";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -63,7 +64,7 @@ function App(props:any) {
             </Switch>
             {/*{GenUtil.isFormRoute(props.location.pathname)?<LottieComponent/>:null}*/}
         </div>:null}
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     );
 }

@@ -38,7 +38,7 @@ const Login = (props:any) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {type} Login
+                    {type[0].toUpperCase()+type.substr(1)} Login
                 </a>
                 <InputGroup style={{width: 300, margin:10}}
                             className="mb-3">

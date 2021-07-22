@@ -62,14 +62,14 @@ const DoctorRegisterScreen = (props:any) => {
                         <Form.Control
                             value={email}
                             onChange={(a)=>setEmail(a.target.value)}
-                            placeholder="@al.com" />
+                            placeholder="namexxxxxx@gmail.com" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGridContactNo.">
 
                         <Form.Control
                             value={phone}
                             onChange={(a)=>setPhone(a.target.value)}
-                            placeholder="9999" />
+                            placeholder="+91 6367xxxxx" />
                     </Form.Group>
 
 

@@ -11,11 +11,6 @@ import {
 const Footer = () => {
     return (
         <Box>
-            <h1 style={{ color: "green",
-                textAlign: "center",
-                marginTop: "-50px" }}>
-                GeeksforGeeks: A Computer Science Portal for Geeks
-            </h1>
             <Container>
                 <Row>
                     <Column>
@@ -26,10 +21,9 @@ const Footer = () => {
                     </Column>
                     <Column>
                         <Heading>Services</Heading>
-                        <FooterLink href="#">Writing</FooterLink>
-                        <FooterLink href="#">Internships</FooterLink>
-                        <FooterLink href="#">Coding</FooterLink>
-                        <FooterLink href="#">Teaching</FooterLink>
+                        <FooterLink href="#">Doctor</FooterLink>
+                        <FooterLink href="#">Patient</FooterLink>
+                        <FooterLink href="#">Pathologist</FooterLink>
                     </Column>
                     <Column>
                         <Heading>Contact Us</Heading>
