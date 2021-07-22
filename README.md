@@ -15,6 +15,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, first run:
 
+### `create firebase account and add config`
+
+In the project directory, first run:
+
 ### `yarn install`
 
 thn you can run:
