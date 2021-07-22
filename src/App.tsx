@@ -16,6 +16,7 @@ import UserRegister from "./screens/doctorRegister/userRegister";
 import DoctorScreen from "./screens/doctorScreen";
 import FullScreenLoader from "./components/fullScreenLoader";
 import {UserService} from "./services/userService";
+import FilesScreen from "./screens/Files";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -51,6 +52,7 @@ function App(props:any) {
                 <Route exact path="/doctor" component={DoctorHome} />
                 <Route exact path="/user" component={UserHome} />
                 <Route exact path="/login/:type" component={Login} />
+                <Route exact path="/files/:phone" component={FilesScreen} />
                 <Route exact path="/doctor/new" component={DoctorScreen} />
                 <Route exact path="/user/register" component={UserRegister} />
                 <Route exact path="/doctor/home" component={DoctorHome} />

@@ -20,9 +20,11 @@ export  class DoctorService{
             window.alert('Patient does not exists!');
             return null;
         }
-        const already=await firebase.firestore().collection('request').where('user_phone','==',phone).
+        const already1=await firebase.firestore().collection('request').where('user_phone','==',phone).
             where('doctor_id','==',StorageUtil.requestUserData().id).where('status','==','requested').get();
-        if(already.docs.length>0){
+        const already2=await firebase.firestore().collection('request').where('user_phone','==',phone).
+            where('doctor_id','==',StorageUtil.requestUserData().id).where('status','==','allowed').get();
+        if(already1.docs.length>0 || already2.docs.length>0 ){
             window.alert('Request already exists!');
             return null;
         }

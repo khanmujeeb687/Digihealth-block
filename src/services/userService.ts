@@ -26,8 +26,8 @@ export class UserService {
     }
 
 
-    static async getReports(userId:string){
-       const response=await  firebase.firestore().collection('report').where('user_id','==',userId).get();
+    static async getReports(phone:string){
+       const response=await  firebase.firestore().collection('report').where('user_phone','==',phone).get();
        return response.docs;
     }
     static  async login(mobileNo:string,password:string){
@@ -44,6 +44,7 @@ export class UserService {
         // });
     }
     static async permitted(docIds : string[]) {
+        console.log({docIds});
         if(docIds.length===0) return [];
         const doctors= [] as any[];
         const snapshot = await firebase.firestore().collection('doctor').get();
@@ -52,6 +53,7 @@ export class UserService {
                 doctors.push(doctor)
             }
         });
+        console.log({doctors});
         return doctors;
     }
     static async updateStatus(requestId: string,userId:string,docId:string){
@@ -63,7 +65,7 @@ export class UserService {
 
     static  async getUser(phone:string){
         if(!phone) return [];
-        const response = await firebase.firestore().collection('user'). where( 'phone','==',phone).get();
+        const response = await firebase.firestore().collection(StorageUtil.requestUserData().type). where( 'phone','==',phone).get();
         return response.docs;
     }
 
@@ -81,8 +83,13 @@ export class UserService {
 
 
     static  async removeDoctor(id:string,userId:string){
-        await firebase.firestore().collection('user').doc(userId).update({permitted: firebase.firestore.FieldValue.arrayRemove(id) } )
+        await firebase.firestore().collection('user').doc(userId).update({permitted: firebase.firestore.FieldValue.arrayRemove(id) } );
+        const docs=await firebase.firestore().collection('request').where('user_phone','==',StorageUtil.requestUserData()?.phone).
+        where('doctor_id','==',id).get();
+        if(docs.docs.length>0){
+            await firebase.firestore().collection('request').doc(docs.docs[0].id).update({status: 'denied' } )
 
+        }
     }
 
 

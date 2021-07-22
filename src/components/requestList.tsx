@@ -21,6 +21,7 @@ const RequestList=({requests,type,remove}:{requests:any[],type:string,remove?:(i
     const onHashVerification=(requestId:string,docId:string,value:boolean)=>{
         if(value){
             UserService.updateStatus(requestId,StorageUtil.requestUserData()?.id,docId);
+            remove && remove(requestId);
         }else{
             alert('Invalid hash');
         }
@@ -71,8 +72,8 @@ const RequestList=({requests,type,remove}:{requests:any[],type:string,remove?:(i
                               {( type==='user' &&item.data()?.status==='requested' && <HashVerifier type={type} onSubmit={(value)=>{
                                   onHashVerification(item.id,item.data().doctor_id,value);
                               }}/>)}
-                              {(item.data()?.status==='allowed' && <Accepted/>)}
-                             {(type==='doctor' && item.data()?.status!=='allowed' && <Button onClick={()=>cancel(item.id)} variant={'danger'}>Delete</Button>)}
+                              {(item.data()?.status==='allowed' && <Accepted phone={item.data().user_phone}/>)}
+                             {(type==='doctor' && item.data()?.status!=='allowed'&& item.data()?.status!=='denied' && <Button onClick={()=>cancel(item.id)} variant={'danger'}>Delete</Button>)}
                           </div>
                       </div>
                   </div>

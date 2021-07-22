@@ -11,11 +11,13 @@ import PermittedDoctors from "../components/permittedDoctors";
 const UserHome = (props:any) => {
     const [requests,setRequests] = useState<any[]>([]);
     const [permitted,setPermitted] = useState<any[]>([]);
+    const [history,setHistory]=useState([] as any[]);
 
     const fetch= async()=>{
-        const requests = await UserService.request(StorageUtil.requestUserData()?.phone);
+        const requests1 = await UserService.request(StorageUtil.requestUserData()?.phone);
         const permitted = await UserService.permitted(StorageUtil.requestUserData()?.permitted);
-        setRequests(requests.filter(item=>item.data().status!=='allowed'));
+        setRequests(requests1.filter(item=>item.data().status!=='allowed' && item.data().status!=='denied'));
+        setHistory(requests1.filter(item=>item.data().status==='denied'));
         setPermitted(permitted);
     }
 
@@ -50,7 +52,9 @@ const UserHome = (props:any) => {
                             first</p>
                     </Tab>
                     <Tab eventKey="Requests" title="Requests">
-                        <RequestList requests={requests} type={'user'}/>
+                        <RequestList  remove={(id)=>{
+                            setRequests(requests.filter(item=>item.id!==id));
+                        }}  requests={requests} type={'user'}/>
                     </Tab>
                 <Tab eventKey="Permitted" title="Permitted" >
                     <PermittedDoctors remove={(id)=>{
@@ -60,6 +64,11 @@ const UserHome = (props:any) => {
                     <Tab eventKey="Reports" title="Reports" >
                         <p> Fourth</p>
                     </Tab>
+                    <Tab eventKey="history" title="Request History">
+                        <RequestList remove={(id)=>{
+                        }} requests={history} type={'doctor'}/>
+                    </Tab>
+
                 </Tabs>
 
             </header>

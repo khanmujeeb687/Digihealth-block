@@ -10,6 +10,8 @@ import RequestList from "../components/requestList";
 
 const DoctorHome = (props:any) => {
     const [request,setRequest]=useState([] as any[]);
+    const [reports,setReports]=useState([] as any[]);
+    const [history,setHistory]=useState([] as any[]);
     useEffect(()=>{
         fetch();
     },[]);
@@ -17,7 +19,9 @@ const DoctorHome = (props:any) => {
     const fetch=async()=>{
         const data =await DoctorService.getRequests();
         console.log(data);
-        setRequest(data);
+        setRequest(data.filter(item=>item.data().status!=='allowed' && item.data().status!=='denied'));
+        setReports(data.filter(item=>item.data().status==='allowed'));
+        setHistory(data.filter(item=>item.data().status==='denied'));
     };
 
     return (
@@ -42,8 +46,13 @@ const DoctorHome = (props:any) => {
                         }} requests={request} type={'doctor'}/>
                     </Tab>
                     <Tab eventKey="Reports" title="Reports">
-                        <p >
-                            first</p>
+                        <RequestList remove={(id)=>{
+                            setReports(request.filter((item)=>item.id!==id));
+                        }} requests={reports} type={'doctor'}/>
+                    </Tab>
+                    <Tab eventKey="history" title="Request History">
+                        <RequestList remove={(id)=>{
+                        }} requests={history} type={'doctor'}/>
                     </Tab>
                 </Tabs>
 
