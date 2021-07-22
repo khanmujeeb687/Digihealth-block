@@ -2,6 +2,9 @@ import firebase from "firebase";
 import {IUser} from "../models/interfaces";
 import {GenUtil} from "../utils/genUtil";
 import {AuthService} from "./authService";
+import {StorageUtil} from "../utils/storageUtil";
+import {DoctorService} from "./doctorService";
+
 
 export class UserService {
 
@@ -33,11 +36,15 @@ export class UserService {
         if(response.docs[0].data().password===password) return response.docs[0].data();
         else return false;
     }
-    static  async request(userId:string){
-        const response = await firebase.firestore().collection('request'). where( 'user_id','==',userId).get();
+    static  async request(phone:string){
+        const response = await firebase.firestore().collection('request'). where( 'user_phone','==',phone).get();
         return response.docs;
+        // return response.docs.map(item=>{
+        //     return item.data();
+        // });
     }
     static async permitted(docIds : string[]) {
+        if(docIds.length===0) return [];
         const doctors= [] as any[];
         const snapshot = await firebase.firestore().collection('doctor').get();
         snapshot.docs.forEach(doctor => {
@@ -47,15 +54,38 @@ export class UserService {
         });
         return doctors;
     }
-    static async updateStatus(requestId: string){
-        firebase.firestore().collection('request').doc(requestId).update({status: 'allowed' } )
+    static async updateStatus(requestId: string,userId:string,docId:string){
+        await firebase.firestore().collection('request').doc(requestId).update({status: 'allowed' } )
+        await firebase.firestore().collection('user').doc(userId).update({permitted: firebase.firestore.FieldValue.arrayUnion(docId) } )
+
     }
 
 
-    static  async getUser(userId:string){
-        const response = await firebase.firestore().collection('request'). where( 'user_id','==',userId).get();
+    static  async getUser(phone:string){
+        if(!phone) return [];
+        const response = await firebase.firestore().collection('user'). where( 'phone','==',phone).get();
         return response.docs;
     }
+
+
+
+    static  async fetchAndSaveUser(){
+        const users  =  await this.getUser(StorageUtil.requestUserData()?.phone);
+        if(users.length>0){
+            await StorageUtil.saveUserData({... users[0].data(),type:StorageUtil.requestUserData().type,id:users[0].id});
+        }
+        console.log(StorageUtil.requestUserData());
+    }
+
+
+
+
+    static  async removeDoctor(id:string,userId:string){
+        await firebase.firestore().collection('user').doc(userId).update({permitted: firebase.firestore.FieldValue.arrayRemove(id) } )
+
+    }
+
+
 
 
 }

@@ -1,11 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '../logo.svg';
 import {Tabs,Tab} from "react-bootstrap";
+import MyNavBar from "../components/navBar";
+import {StorageUtil} from "../utils/storageUtil";
+import {UserService} from "../services/userService";
+import RequestList from "../components/requestList";
+import PermittedDoctors from "../components/permittedDoctors";
 
 
-const UserHome = () => {
+const UserHome = (props:any) => {
+    const [requests,setRequests] = useState<any[]>([]);
+    const [permitted,setPermitted] = useState<any[]>([]);
+
+    const fetch= async()=>{
+        const requests = await UserService.request(StorageUtil.requestUserData()?.phone);
+        const permitted = await UserService.permitted(StorageUtil.requestUserData()?.permitted);
+        setRequests(requests.filter(item=>item.data().status!=='allowed'));
+        setPermitted(permitted);
+    }
+
+    useEffect(()=>{
+        fetch();
+    },[]);
+
+
     return (
-
+        <div>
+            <MyNavBar
+                leftRef={''}
+                leftText={''}
+                buttonText={'Logout'} onClick={()=>{
+                StorageUtil.logout();
+                props.history.push('/');
+            }}/>
         <div className="App">
             <header className="App-header">
 
@@ -23,10 +50,12 @@ const UserHome = () => {
                             first</p>
                     </Tab>
                     <Tab eventKey="Requests" title="Requests">
-                        <p>second</p>
+                        <RequestList requests={requests} type={'user'}/>
                     </Tab>
                 <Tab eventKey="Permitted" title="Permitted" >
-                    <p> third</p>
+                    <PermittedDoctors remove={(id)=>{
+                        setPermitted(permitted.filter(item=>item.id!==id));
+                    }} doctors={permitted}/>
                 </Tab>
                     <Tab eventKey="Reports" title="Reports" >
                         <p> Fourth</p>
@@ -34,6 +63,7 @@ const UserHome = () => {
                 </Tabs>
 
             </header>
+        </div>
         </div>
     );
 }

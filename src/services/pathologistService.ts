@@ -1,9 +1,9 @@
 import firebase from "firebase";
 import {GenUtil} from "../utils/genUtil";
-import UploadReport from "../screens/uploadReport";
 import {UploadService} from "./uploadService";
 import {AuthService} from "./authService";
 import {StorageUtil} from "../utils/storageUtil";
+
 export  class PathologistService{
     static async registerPathologist(pathologist:any){
         const exist=await AuthService.doExist(pathologist.phone,'pathologist');

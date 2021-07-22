@@ -11,15 +11,11 @@ import UploadReport from "./screens/uploadReport";
 import Login from "./screens/login";
 import firebase from "firebase";
 import DoctorHome from "./screens/doctorHome";
-import LottieComponent from "./components/LottieComponent";
-import {GenUtil} from "./utils/genUtil";
 import UserHome from "./screens/userHome";
-import MyNavBar from "./components/navBar";
 import UserRegister from "./screens/doctorRegister/userRegister";
 import DoctorScreen from "./screens/doctorScreen";
-import Footer from "./components/footer";
-import {StorageUtil} from "./utils/storageUtil";
 import FullScreenLoader from "./components/fullScreenLoader";
+import {UserService} from "./services/userService";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
@@ -40,7 +36,8 @@ function App(props:any) {
     useEffect(()=>{
         (async()=>{
            await  firebase.initializeApp(firebaseConfig);
-           setLoaded(true);
+           UserService.fetchAndSaveUser();
+            setLoaded(true);
         })();
         },[]);
     return (

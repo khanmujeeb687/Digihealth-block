@@ -3,14 +3,13 @@ import {Button, Col, Row} from "react-bootstrap";
 import GradientBanner from "../components/GradientBanner";
 import MyNavBar from "../components/navBar";
 import {StorageUtil} from "../utils/storageUtil";
+import {UserService} from "../services/userService";
 
 const Home = (props: any) => {
     useEffect(() => {
         const a = StorageUtil.requestUserData();
         if (a !== null) {
             props.history.push('/' + a.type);
-
-
         }
 
 

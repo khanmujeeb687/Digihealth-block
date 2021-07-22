@@ -1,5 +1,6 @@
 export class StorageUtil {
     static saveUserData(data: any) {
+        console.log({data});
         localStorage.setItem('userData', JSON.stringify(data));
     }
 
