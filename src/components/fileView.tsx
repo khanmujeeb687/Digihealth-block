@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
- const FileView=({file,onClose}:{file:string,onClose:()=>void;}) =>{
+ const FileView=({file,onClose}:{file:string;onClose:()=>void;}) =>{
     const classes = useStyles();
 
     return (
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <iframe src={'https://ipfs.io/ipfs/'+file}
+                <iframe src={file}
                         style={{width:window.innerWidth, height:window.innerHeight}} frameBorder="0"/>
             </Dialog>
         </div>

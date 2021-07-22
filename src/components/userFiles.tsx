@@ -56,10 +56,15 @@ const UserFiles=({phone}:{phone:string})=>{
                         </ListItemAvatar>
                         <ListItemText
                             onClick={()=>{
+                                console.log({DATA:'https://ipfs.io/ipfs/'+item.data().file_hash});
                                 if(StorageUtil.requestUserData()?.type==='doctor'){
                                     DoctorService.view(item.id,item.data()?.user_phone);
                                 }
-                                setSelectedFile(item.data().file_hash);
+                                if(item.data().file_hash){
+                                    setSelectedFile('https://ipfs.io/ipfs/'+item.data().file_hash);
+                                }else{
+                                    setSelectedFile(item.data().file_url);
+                                }
                             }}
                             primary={'Pathologist ID :'+item.data().pathologist_id}
                             secondary={
