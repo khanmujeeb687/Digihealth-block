@@ -4,6 +4,9 @@ import GradientBanner from "../components/GradientBanner";
 import MyNavBar from "../components/navBar";
 import {StorageUtil} from "../utils/storageUtil";
 import {UserService} from "../services/userService";
+import LottieComponent from "../components/LottieComponent";
+import {Typography} from "@material-ui/core";
+import {FaDotCircle} from "react-icons/all";
 
 const Home = (props: any) => {
     useEffect(() => {
@@ -37,6 +40,24 @@ const Home = (props: any) => {
                     <Col><GradientBanner to={'/login/pathologist'} title={"Pathologist"}
                                          subTitle={"Upload reports save paper."}/></Col>
                 </Row>
+                <div style={{marginTop:'50px',marginBottom:'50px',display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+
+                    <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
+                        <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:'30px'}}>
+                        <FaDotCircle/><Typography variant={'h5'}>{'  '}  Manage all your reports at one place</Typography>
+                        </div>
+                        <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:'30px'}}>
+                        <FaDotCircle/><Typography variant={'h5'}>{'  '}  Keep your reports safe and immutable</Typography>
+                        </div>
+                        <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:'30px'}}>
+                        <FaDotCircle/><Typography variant={'h5'}>{'  '}  Keep your reports for geneartions</Typography>
+                        </div>
+                        <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',marginBottom:'30px'}}>
+                        <FaDotCircle/><Typography variant={'h5'}>{'  '}  Help in contributing for a healthy mother nature</Typography>
+                        </div>
+                    </div>
+                <LottieComponent/>
+                </div>
             </header>
         </div>
     );

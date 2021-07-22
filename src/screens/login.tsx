@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {AuthService} from "../services/authService";
 import MyNavBar from "../components/navBar";
+import LottieComponent from "../components/LottieComponent";
 
 
 
@@ -31,7 +32,8 @@ const Login = (props:any) => {
             <MyNavBar/>
         <div className="App">
             <header className="App-header">
-
+                <div style={{display:'flex',flexDirection:'row',alignItems:'space-evenly'}}>
+                    <div>
                 <a
                     className="App-link"
                     href="https://reactjs.org"
@@ -70,6 +72,9 @@ const Login = (props:any) => {
                         props.history.push('/'+type+'/register');
                     }}
                 > Register</a> </p>
+                    </div>
+                    <LottieComponent/>
+                </div>
             </header>
         </div>
         </div>
