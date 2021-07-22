@@ -7,6 +7,7 @@ import HashVerifier from "./HashVerifier";
 import {UserService} from "../services/userService";
 import Accepted from "./Accepted";
 import {StorageUtil} from "../utils/storageUtil";
+import NoItem from "./noItem";
 
 
 
@@ -32,6 +33,7 @@ const RequestList=({requests,type,remove}:{requests:any[],type:string,remove?:(i
 
     return (
       <div style={{minWidth:window.innerWidth*.8}}>
+          {(!requests.length && <NoItem/>)}
           {requests.map((item:any)=>{
               return(
                   <div style={{

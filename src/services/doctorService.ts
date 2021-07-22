@@ -44,4 +44,13 @@ export  class DoctorService{
     static  async deleteRequest(id:string){
        await firebase.firestore().collection('request').doc(id).delete();
     }
+
+    static  async view(id:string,phone:string){
+       await firebase.firestore().collection('view').add({
+           file_id:id,
+           user_phone:phone,
+           created_at:new Date().getUTCDate(),
+           doctor_id: StorageUtil.requestUserData()?.id
+       });
+    }
 }

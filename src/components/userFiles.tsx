@@ -44,6 +44,9 @@ const UserFiles=({phone}:{phone:string})=>{
             {files.map((item:any)=>{
                 return(
                     <ListItem onClick={()=>{
+                        if(StorageUtil.requestUserData()?.type==='doctor'){
+                            DoctorService.view(item.id,item.data()?.user_phone);
+                        }
                         setSelectedFile(item.data().file_url);
                     }} style={{backgroundColor:'#434242',borderRadius:'20px',margin:'5px'}} alignItems="flex-start">
                         <ListItemAvatar>

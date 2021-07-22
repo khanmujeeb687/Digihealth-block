@@ -20,8 +20,8 @@ export class UserService {
       await ref.update({hash});
     }
 
-    static async viewList(userId:string){
-       const response=await  firebase.firestore().collection('view').where('user_id','==',userId).get();
+    static async viewList(phone:string){
+       const response=await  firebase.firestore().collection('view').where('user_phone','==',phone).get();
        return response.docs;
     }
 

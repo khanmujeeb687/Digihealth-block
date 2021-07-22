@@ -6,14 +6,19 @@ import {StorageUtil} from "../utils/storageUtil";
 import {UserService} from "../services/userService";
 import RequestList from "../components/requestList";
 import PermittedDoctors from "../components/permittedDoctors";
+import UserFiles from "../components/userFiles";
+import ViewList from "../components/viewList";
 
 
 const UserHome = (props:any) => {
     const [requests,setRequests] = useState<any[]>([]);
     const [permitted,setPermitted] = useState<any[]>([]);
+    const [views,setView] = useState<any[]>([]);
     const [history,setHistory]=useState([] as any[]);
 
     const fetch= async()=>{
+        const viewData = await UserService.viewList(StorageUtil.requestUserData()?.phone);
+        setView(viewData);
         const requests1 = await UserService.request(StorageUtil.requestUserData()?.phone);
         const permitted = await UserService.permitted(StorageUtil.requestUserData()?.permitted);
         setRequests(requests1.filter(item=>item.data().status!=='allowed' && item.data().status!=='denied'));
@@ -48,8 +53,7 @@ const UserHome = (props:any) => {
                 </a>
                 <Tabs style= {{width:window.innerWidth-100}} defaultActiveKey="Who viewed" id="uncontrolled-tab-example">
                     <Tab eventKey="Who viewed" title="Who viewed">
-                        <p >
-                            first</p>
+                       <ViewList list={views}/>
                     </Tab>
                     <Tab eventKey="Requests" title="Requests">
                         <RequestList  remove={(id)=>{
@@ -62,7 +66,7 @@ const UserHome = (props:any) => {
                     }} doctors={permitted}/>
                 </Tab>
                     <Tab eventKey="Reports" title="Reports" >
-                        <p> Fourth</p>
+                        <UserFiles phone={StorageUtil.requestUserData().phone}/>
                     </Tab>
                     <Tab eventKey="history" title="Request History">
                         <RequestList remove={(id)=>{
