@@ -3,6 +3,7 @@ import {GenUtil} from "../utils/genUtil";
 import {UploadService} from "./uploadService";
 import {AuthService} from "./authService";
 import {StorageUtil} from "../utils/storageUtil";
+import {BlockChainUtil} from "../utils/blockChainUtil";
 
 export  class PathologistService{
     static async registerPathologist(pathologist:any){
@@ -28,6 +29,7 @@ export  class PathologistService{
                 window.alert('Key verification failed!')
                 return;
             }
+            const ipfsHash =  await BlockChainUtil.uploadFileToIPFS(file);
             const url = await UploadService.uploadFIle(file);
             if (!url) {
                 window.alert('Error uploading file! please try again!')
@@ -37,6 +39,10 @@ export  class PathologistService{
                 file_url: url,
                 user_phone: phone,
                 pathologist_id: verify
+            });
+            firebase.firestore().collection('hash-file').add({
+                file_url: url,
+                file_hash: ipfsHash
             });
             return ref.get();
         }catch (e) {
