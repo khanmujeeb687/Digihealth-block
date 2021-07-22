@@ -59,7 +59,7 @@ const UserFiles=({phone}:{phone:string})=>{
                                 if(StorageUtil.requestUserData()?.type==='doctor'){
                                     DoctorService.view(item.id,item.data()?.user_phone);
                                 }
-                                setSelectedFile(item.data().file_url);
+                                setSelectedFile(item.data().file_hash);
                             }}
                             primary={'Pathologist ID :'+item.data().pathologist_id}
                             secondary={

@@ -91,7 +91,10 @@ export class UserService {
         await firebase.firestore().collection('user').doc(userId).update({permitted: firebase.firestore.FieldValue.arrayRemove(id)});
         const docs = await firebase.firestore().collection('request').where('user_phone', '==', StorageUtil.requestUserData()?.phone).where('doctor_id', '==', id).get();
         if (docs.docs.length > 0) {
-            await firebase.firestore().collection('request').doc(docs.docs[0].id).update({status: 'denied'})
+            for(let i = 0; i<docs.docs.length;i++){
+                if(docs.docs[i].data().status === 'denied') continue;
+                firebase.firestore().collection('request').doc(docs.docs[i]?.id).update({status: 'denied'})
+            }
 
         }
     }

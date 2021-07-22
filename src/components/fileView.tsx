@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <iframe src={file}
+                <iframe src={'https://ipfs.io/ipfs/'+file}
                         style={{width:window.innerWidth, height:window.innerHeight}} frameBorder="0"/>
             </Dialog>
         </div>

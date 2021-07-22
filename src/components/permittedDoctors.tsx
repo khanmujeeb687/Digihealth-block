@@ -3,6 +3,7 @@ import {DoctorService} from "../services/doctorService";
 import {Avatar, Button, ListItem, ListItemAvatar, ListItemText, makeStyles, Typography} from "@material-ui/core";
 import {UserService} from "../services/userService";
 import {StorageUtil} from "../utils/storageUtil";
+import NoItem from "./noItem";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ const PermittedDoctors=({doctors,remove}:{doctors:any[],remove?:(id:string)=>voi
 
     return (
         <div style={{minWidth:window.innerWidth*.8}}>
+            {(!doctors.length && <NoItem/>)}
             {doctors.map((item:any)=>{
                 return(
                     <ListItem style={{backgroundColor:'#434242',borderRadius:'20px',margin:'5px'}} alignItems="flex-start">
