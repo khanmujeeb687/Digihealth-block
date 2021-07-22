@@ -9,7 +9,7 @@ const MyNavBar = ({leftText, onClick, buttonText, leftRef}:
     return (
         <div style={{marginBottom: 100}}>
             <Navbar sticky={'top'} bg="light" expand="lg">
-                <Navbar.Brand href="/">Digihealth Blocks</Navbar.Brand>
+                <Navbar.Brand href="/">E Reports</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
