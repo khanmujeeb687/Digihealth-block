@@ -20,13 +20,13 @@ import FilesScreen from "./screens/Files";
 import Footer from "./components/footer";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAKDp1VR4KlqyYQOYcGSyboURK6xHU38Ek",
-    authDomain: "ereport-7fc81.firebaseapp.com",
-    projectId: "ereport-7fc81",
-    storageBucket: "ereport-7fc81.appspot.com",
-    messagingSenderId: "32963531288",
-    appId: "1:32963531288:web:0907bb27a6be716f1d696d",
-    measurementId: "G-JVSDF7NE7Y"
+    apiKey: "YOUR_FIREBASE_API_KEY",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
 };
 
 
