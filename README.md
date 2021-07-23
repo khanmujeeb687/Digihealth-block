@@ -15,7 +15,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, first run:
 
-### `create firebase account and add config`
+### `create firebase account and add config to app.tsx`
+
 
 In the project directory, first run:
 
